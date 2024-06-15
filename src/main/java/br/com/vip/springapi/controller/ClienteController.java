@@ -38,7 +38,6 @@ public class ClienteController {
             Cliente clienteNovo = clienteService.saveCliente(cliente);
             return ResponseEntity.status(HttpStatus.CREATED).body(new DefaultResponse(201, "Cliente adicionado com sucesso!", clienteNovo));
         } catch (Exception e) {
-            System.out.println("caiu aqui");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new DefaultResponse(400, "Cliente com dados inválidos!", null));
         }
     }
@@ -56,7 +55,6 @@ public class ClienteController {
     @PutMapping(path = "/{id}")
     public ResponseEntity<DefaultResponse> atualizar(@PathVariable Long id, @RequestBody Cliente cliente) {
         try {
-            System.out.println(cliente);
             Cliente clienteRetorno = clienteService.updateCliente(id, cliente);
             return ResponseEntity.status(HttpStatus.OK).body(new DefaultResponse(200, "Cliente atualizado com sucesso!", clienteRetorno));
         } catch (Exception e) {

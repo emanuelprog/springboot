@@ -39,7 +39,6 @@ public class ClienteService {
 
         if (clienteDB.isPresent()) {
             cliente.setId(id);
-            System.out.println(clienteDB);
            return clienteRepository.save(cliente);
         } else {
             throw new InvalidRequestException("Não foi possível atualizar o cliente", null);
